@@ -60,7 +60,6 @@ function editTask(Identificacion) {
     let Corte2 = tasks[i].Corte2;
     let Corte3 = tasks[i].Corte3;   
     
-
     document.getElementById('Identificacion').value = Identificacion;
     document.getElementById('Nombre').value = Nombre;
     document.getElementById('Corte1').value = Corte1;
