@@ -1,2 +1,2 @@
 # PromedioSemestral-javascript-app - Con LocalStore 
-![](docs/Promedio.jpeg)
+![](docs/Promedio1.jpeg)
