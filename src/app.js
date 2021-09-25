@@ -48,6 +48,32 @@ function deleteTask(Identificacion) {
   getTasks();
 }
 
+function editTask(Identificacion) {
+  
+  console.log(Identificacion)
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+  for(let i = 0; i < tasks.length; i++) {
+    if(tasks[i].Identificacion == Identificacion) {
+    let Identificacion = tasks[i].Identificacion;
+    let Nombre = tasks[i].Nombre;
+    let Corte1 = tasks[i].Corte1;
+    let Corte2 = tasks[i].Corte2;
+    let Corte3 = tasks[i].Corte3;   
+    
+
+    document.getElementById('Identificacion').value = Identificacion;
+    document.getElementById('Nombre').value = Nombre;
+    document.getElementById('Corte1').value = Corte1;
+    document.getElementById('Corte2').value = Corte2;
+    document.getElementById('Corte3').value = Corte3;
+    tasks.splice(i, 1);
+    }
+  }
+  
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  getTasks();
+}
+
 function getTasks() {
   let tasks = JSON.parse(localStorage.getItem('tasks'));
   let tasksView = document.getElementById('tasks');
@@ -84,9 +110,14 @@ function getTasks() {
           <td><p>${Corte3}</td>
           <td><p>${Promedio}</td>
           <td>
+            <a href="#" onclick="editTask('${Identificacion}')" class="btn btn-secondary">
+              <i class="fas fa-marker"></i>
+            </a>
+            
             <a href="#" onclick="deleteTask('${Identificacion}')" class="btn btn-danger">
               <i class="far fa-trash-alt"></i>
             </a>
+           
           </td>
         </tr>            
       </tbody>
